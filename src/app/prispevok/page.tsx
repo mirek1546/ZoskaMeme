@@ -1,16 +1,16 @@
-// src/app/profil/page.tsx
+// src/app/prispevok/page.tsx
 
 
 import Typography from "@mui/material/Typography";
 import Conrainer from "@mui/material/Container";
 
-export const metadata = { title: "Profil | ZoškaMeme" };
+export const metadata = { title: "Zoznam prispevkov | ZoškaMeme" };
 
-export default function ProfileList() {
+export default function PrispevokList() {
 
   return (
     <Conrainer>
-      <Typography> Zoznam profilov </Typography>
+      <Typography> Zoznam prispevkov </Typography>
     </Conrainer>
   );
 }

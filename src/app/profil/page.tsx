@@ -4,7 +4,7 @@
 import Typography from "@mui/material/Typography";
 import Conrainer from "@mui/material/Container";
 
-export const metadata = { title: "Zosznam profilov | ZoškaMeme" };
+export const metadata = { title: "Zoznam profilov | ZoškaMeme" };
 
 export default function ProfileList() {
 
