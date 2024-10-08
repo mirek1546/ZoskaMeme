@@ -1,9 +1,9 @@
 // src/components/NavBar.tsx
-"use.client";
+"use client";
 
 import * as React from 'react';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import { BottomNavigation, BottomNavigationAction, Box } from '@mui/material';
+import HomeIcon from '@mui/icons-material/AccountCircle';
 import FolderIcon from '@mui/icons-material/Folder';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
