@@ -7,12 +7,16 @@ import HomeIcon from '@mui/icons-material/Home';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import LoginIcon from '@mui/icons-material/Login';
-import Box from '@mui/material/Box'; // Import missing
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import Box from '@mui/material/Box';
 import { useRouter } from 'next/navigation';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 const NavBar: React.FC = () => {
   const [value, setValue] = useState(0);
   const router = useRouter();
+  const { data: session } = useSession();
 
   const handleNavigation = (path: string) => {
     router.push(path);
@@ -31,26 +35,49 @@ const NavBar: React.FC = () => {
           label="Domov"
           icon={<HomeIcon />}
           onClick={() => handleNavigation('/')}
+          showLabel
         />
         <BottomNavigationAction
           label="Príspevky"
           icon={<PostAddIcon />}
           onClick={() => handleNavigation('/pridat')}
+          showLabel
         />
-        <BottomNavigationAction
-          label="Registrácia"
-          icon={<PersonAddIcon />}
-          onClick={() => handleNavigation('/auth/registracia')}
-        />
-        <BottomNavigationAction
-          label="Prihlásenie"
-          icon={<LoginIcon />}
-          onClick={() => handleNavigation('/auth/prihlasenie')}
-        />
+
+        {session ? (
+          <>
+            <BottomNavigationAction
+              label="Profil"
+              icon={<AccountCircleIcon />}
+              onClick={() => handleNavigation('/profil')}
+              showLabel
+            />
+            <BottomNavigationAction
+              label="Odhlásenie"
+              icon={<ExitToAppIcon />}
+              onClick={() => signOut()}
+              showLabel
+            />
+          </>
+        ) : (
+          <>
+            <BottomNavigationAction
+              label="Registrácia"
+              icon={<PersonAddIcon />}
+              onClick={() => signIn('google')}
+              showLabel
+            />
+            <BottomNavigationAction
+              label="Prihlásenie"
+              icon={<LoginIcon />}
+              onClick={() => signIn('google')}
+              showLabel
+            />
+          </>
+        )}
       </BottomNavigation>
     </Box>
   );
 };
 
 export default NavBar;
-

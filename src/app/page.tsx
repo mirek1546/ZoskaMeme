@@ -1,18 +1,17 @@
 // src/app/page.tsx
+'use client';
 
-
-
+import { useSession } from 'next-auth/react';
 import Typography from "@mui/material/Typography";
+import HomePagePrihlaseny from "../section/HomePagePrihlaseny";
+import HomePageNeprihlaseny from "../section/HomePageNeprihlaseny";
 
-export const metadata = { title: "Domov | ZoškaMeme" };
+export default function Home() {
+  const { data: session } = useSession();
 
-export default function home() {
-
-  return (
-
-      <Typography> Domovská stránka </Typography>
-
-  );
+  if (session) {
+    return <HomePagePrihlaseny />;
+  } else {
+    return <HomePageNeprihlaseny />;
+  }
 }
-
-
