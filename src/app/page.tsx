@@ -2,7 +2,6 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
-import Typography from "@mui/material/Typography";
 import HomePagePrihlaseny from "../section/HomePagePrihlaseny";
 import HomePageNeprihlaseny from "../section/HomePageNeprihlaseny";
 
