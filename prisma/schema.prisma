@@ -63,3 +63,4 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verification_tokens")
 }
+
