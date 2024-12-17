@@ -1,16 +1,33 @@
 // src/app/auth/registracia/page.tsx
 
+"use client";
 
-import Typography from "@mui/material/Typography";
-import Conrainer from "@mui/material/Container";
+import CustomButton from "@/components/CustomButtom";
+import { signIn } from "next-auth/react";
 
-export const metadata = { title: "Registrácia | ZoškaMeme" };
-
-export default function Registration() {
-
+export default function Registrácia() {
   return (
-    <Conrainer>
-      <Typography> Registrácia </Typography>
-    </Conrainer>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <h1>Registrácia</h1>
+
+      {/* Tlačidlo na registráciu cez Google */}
+      <CustomButton
+        onClick={() => signIn("google")}
+        backgroundColor="blue"
+        borderColor="black"
+        hoverBackgroundColor="gray"
+        hoverBorderColor="darkred"
+      >
+        Registrovať sa cez Google
+      </CustomButton>
+    </div>
   );
 }
